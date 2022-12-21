@@ -4,22 +4,6 @@ public class TV {
 	private int channel; // 1~255
 	private int volume; // 0~100
 	private boolean power;
-
-//	private void channel(int channel) {
-//		this.channel = channel;
-//	}
-//
-//	private void channel(Boolean up) {
-//	}
-//
-//	private void volume(int volume) {
-//		this.volume = volume;
-//	}
-//
-//	private void volume(Boolean up) {
-//	}
-
-	
 	
 	public TV(int channel, int volume, boolean power) {
 		this.channel = channel;
