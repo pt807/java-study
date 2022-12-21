@@ -9,16 +9,33 @@ public class Song {
 	private int year;
 
 	public void show() {
-		System.out.println(
-				artist + " " + 
-				title + "(" + 
-				album + ", " + 
-				year + ", " + 
-				track + ", " + 
-				composer + 
-				" 작곡)");
+		System.out.println(artist + " " + title + "(" + album + ", " + year + ", " + track + ", " + composer + " 작곡)");
 	}
-	
+
+	public Song(String title, String artist, String album, String composer, int track, int year) {
+		this.title = title;
+		this.artist = artist;
+		this.album = album;
+		this.composer = composer;
+		this.track = track;
+		this.year = year;
+
+		System.out.println("....... someCode1");
+		System.out.println("....... someCode2");
+		System.out.println("....... someCode3");
+		System.out.println("....... someCode4");
+		System.out.println("....... someCode5");
+	}
+
+	public Song(String title, String artist) {
+		this(title, artist, "", "", 0, 0); //기본 생성자 이용하여 중복 코드 방지(somecode)
+
+		System.out.println("....... someCode6");
+		this.title = title;
+		this.artist = artist;
+
+	}
+
 	public String getTitle() {
 		return title;
 	}
