@@ -4,11 +4,7 @@ public class TV {
 	private int channel; // 1~255
 	private int volume; // 0~100
 	private boolean power;
-<<<<<<< HEAD
-=======
 
->>>>>>> refs/remotes/origin/master
-	
 	public TV(int channel, int volume, boolean power) {
 		this.channel = channel;
 		this.volume = volume;
