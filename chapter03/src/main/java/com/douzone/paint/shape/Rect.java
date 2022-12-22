@@ -1,4 +1,4 @@
-package paint;
+package com.douzone.paint.shape;
 
 public class Rect extends Shape {
 
