@@ -15,7 +15,7 @@ public class Point implements Drawable {
 
 	@Override
 	public void draw() {
-		
+		show();
 	}
 
 	public void show() {
