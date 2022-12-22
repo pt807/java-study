@@ -48,16 +48,16 @@ public class CalcApp {
 
 				break;
 			}
-		}
-			if(arith == null) {
+			}
+			if (arith == null) {
 				System.out.println(">> 알 수 없는 연산입니다.");
 				continue;
 			}
-			
+
 			arith.setValue(lValue, rValue);
 			int result = arith.calculate();
 			System.out.println(">>" + result);
-	}
+		}
 
 		scanner.close();
 
