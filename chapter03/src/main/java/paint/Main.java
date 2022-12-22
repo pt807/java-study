@@ -7,10 +7,15 @@ public class Main {
 //		point.setX(10);
 //		point.setY(10);
 		point.show();
-		
+
+		drawpoint(point);
+
 		point.show(false);
-		
-		//point.disapear();
+		// point.disapear();
+	}
+
+	public static void drawpoint(Point point) {
+		point.show();
 	}
 
 }
