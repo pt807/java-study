@@ -9,7 +9,7 @@ public class ExceptionTest {
 
 		System.out.println("some code 1...");
 		try {
-			System.out.println("some code 2...");
+			System.out.println("some code 2... file open");
 			System.out.println("some code 3...");
 
 			int res = (1 + 2 + 3) / b;
@@ -27,7 +27,7 @@ public class ExceptionTest {
 			// System.exit(0);
 			return;
 		} finally {
-			System.out.println("!!!!!!!!!!!!");
+			System.out.println("자원 정리 예: file close...");
 		}
 
 		System.out.println("some code 6...");
