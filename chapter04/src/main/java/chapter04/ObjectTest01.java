@@ -8,14 +8,12 @@ public class ObjectTest01 {
 
 		// Class klass = point.getClass(); // reflection
 		System.out.println(point.getClass());
-		// System.out.println(klass.toString());
 		System.out.println(point.hashCode()); // address 기반의 해싱값
-											  // address x
-											  // refernce x
-
-		System.out.println(point.toString()); // getClass() + "@" + hashCodde()
+												// address x
+												// refernce x
+		System.out.println(point.toString()); // getClass() + "@" + hashCode()
 		System.out.println(point);
-		
+
 	}
 
 }
