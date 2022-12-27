@@ -51,12 +51,12 @@ public class GugudanApp {
 		/* 코드 작성(수정 가능) */
 		final int COUNT_ANSWER_NUMBER = 9;
 		int[] boardNumbers = new int[COUNT_ANSWER_NUMBER];
-		int count = 0;
+		int l, r, count = 0;
 		Set<Gugudan> set = new HashSet<>();
 
 		while (set.size() < COUNT_ANSWER_NUMBER) {
-			int l = randomize(1, 9);
-			int r = randomize(1, 9);
+			l = randomize(1, 9);
+			r = randomize(1, 9);
 			set.add(new Gugudan(l, r));
 		}
 
