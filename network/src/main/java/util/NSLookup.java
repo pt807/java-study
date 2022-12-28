@@ -23,7 +23,7 @@ public class NSLookup {
 			}
 
 		} catch (UnknownHostException e) {
-			System.out.println("error");
+			System.out.println("error: " + e);
 		}
 	}
 
