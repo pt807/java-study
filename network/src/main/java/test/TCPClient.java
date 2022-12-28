@@ -30,10 +30,15 @@ public class TCPClient {
 			// 5. 읽기
 			byte[] buffer = new byte[256];
 			int readByteCount = is.read(buffer); // blocking
-			if(readByteCount == -1) {
+			if (readByteCount == -1) {
 				// 서버가 정상적으로 종료(close() 호출)
-				socket.close();
+				System.out.println("[client] closed by server");
+				return;
 			}
+
+			data = new String(buffer, 0, readByteCount, "utf-8");
+			System.out.println("[client] received: " + data);
+
 		} catch (IOException e) {
 			System.out.println("[client] error: " + e);
 		} finally {
