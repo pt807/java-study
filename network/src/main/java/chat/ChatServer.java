@@ -17,7 +17,6 @@ public class ChatServer {
 		ServerSocket serverSocket = null;
 		List<Writer> listWriters = new ArrayList<>();
 		try {
-			System.out.print(">>");
 			serverSocket = new ServerSocket();
 
 			serverSocket.bind(new InetSocketAddress("0.0.0.0", PORT));
@@ -36,7 +35,7 @@ public class ChatServer {
 					serverSocket.close();
 				}
 			} catch (IOException e) {
-				log("ChatServer 소켓종료 에러");
+				log("소켓종료 에러");
 			}
 		}
 	}

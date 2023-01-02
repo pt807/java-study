@@ -8,6 +8,7 @@ import java.io.PrintWriter;
 import java.io.Writer;
 import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.net.SocketException;
 import java.util.List;
 
 public class ChatServerThread extends Thread {
@@ -29,12 +30,13 @@ public class ChatServerThread extends Thread {
 
 		try {
 			PrintWriter pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), "utf-8"), true);
-			BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+			BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream(), "utf-8"));
 
 			while (true) {
 				String request = br.readLine();
 				if (request == null) {
 					ChatServer.log("클라이언트로 부터 연결이 끊김");
+					doQuit(pw);
 					break;
 				}
 
@@ -45,6 +47,7 @@ public class ChatServerThread extends Thread {
 					doMessage(token[1]);
 				} else if ("quit".equals(token[0])) {
 					doQuit(pw);
+					break;
 				} else {
 					ChatServer.log("에러: 알수 없는 요청(" + token[0] + ")");
 				}
@@ -52,7 +55,7 @@ public class ChatServerThread extends Thread {
 			}
 
 		} catch (IOException e) {
-			ChatServer.log("error: " + e);
+			ChatServer.log("클라이언트 소캣 강제 종료: " + e);
 		}
 	}
 
@@ -70,7 +73,7 @@ public class ChatServerThread extends Thread {
 	}
 
 	private void doMessage(String message) {
-		broadcast(nickName + " : " + message);
+		broadcast(nickName + ": " + message);
 	}
 
 	private void doJoin(String nickName, Writer writer) {
@@ -83,7 +86,7 @@ public class ChatServerThread extends Thread {
 
 		PrintWriter printWriter = (PrintWriter) writer;
 		printWriter.println("join:ok");
-		printWriter.flush();
+//		printWriter.flush();
 	}
 
 	private void addWriter(Writer writer) {
@@ -98,7 +101,7 @@ public class ChatServerThread extends Thread {
 			for (Writer writer : listWriters) {
 				PrintWriter printWriter = (PrintWriter) writer;
 				printWriter.println(data);
-				printWriter.flush();
+//				printWriter.flush();
 			}
 		}
 	}
