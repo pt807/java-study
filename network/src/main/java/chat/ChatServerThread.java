@@ -85,7 +85,7 @@ public class ChatServerThread extends Thread {
 		addWriter(writer);
 
 		PrintWriter printWriter = (PrintWriter) writer;
-		printWriter.println("join:ok");
+		printWriter.println("JOIN:OK");
 //		printWriter.flush();
 	}
 

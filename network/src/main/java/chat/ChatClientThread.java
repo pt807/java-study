@@ -21,6 +21,9 @@ public class ChatClientThread extends Thread {
 			while (true) {
 				input = br.readLine();
 				System.out.println(input);
+				if(input == null) {
+					ChatClient.log("closed by server");
+				}
 			}
 		} catch (IOException e) {
 			System.out.println("error: " + e);

@@ -13,6 +13,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.net.Socket;
 
 public class ChatWindow {
 
@@ -21,6 +22,7 @@ public class ChatWindow {
 	private Button buttonSend;
 	private TextField textField;
 	private TextArea textArea;
+	private Socket socket;
 
 	public ChatWindow(String name) {
 		frame = new Frame(name);
@@ -28,6 +30,11 @@ public class ChatWindow {
 		buttonSend = new Button("Send");
 		textField = new TextField();
 		textArea = new TextArea(30, 80);
+	}
+
+	public ChatWindow(Socket socket, String name) {
+		this.socket = socket;
+		frame = new Frame(name);
 	}
 
 	public void show() {

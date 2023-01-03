@@ -1,6 +1,8 @@
 package chat;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.InetSocketAddress;
@@ -23,16 +25,21 @@ public class ChatClient {
 			log("connected");
 			// 4. reader/writer 생성
 			PrintWriter pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), "utf-8"), true);
-			//BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream(), "utf-8"));
+			BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream(), "utf-8"));
 
 			// 5. join 프로토콜
 			System.out.print("닉네임>>");
 			String nickname = scanner.nextLine();
 			pw.println("join:" + nickname);
 //			pw.flush();
-
-			// 6. ChatClientReceiveThread 시작
-			new ChatClientThread(socket).start();
+			String result = br.readLine();
+			if (result.equals("JOIN:OK")) {
+				// 6. ChatClientReceiveThread 시작
+				new ChatClientThread(socket).start();
+			}else {
+				//처리
+				return;
+			}
 
 			// 7. 키보드 입력 처리
 			while (true) {
