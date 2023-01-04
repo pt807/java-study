@@ -36,9 +36,6 @@ public class ChatClient {
 			if (result.equals("JOIN:OK")) {
 				// 6. ChatClientReceiveThread 시작
 				new ChatClientThread(socket).start();
-			}else {
-				//처리
-				return;
 			}
 
 			// 7. 키보드 입력 처리

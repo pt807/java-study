@@ -31,6 +31,41 @@ public class ChatClientApp {
 
 			System.out.println("대화명은 한글자 이상 입력해야 합니다.\n");
 		}
+		// ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+//		socket = new Socket();
+//		try {
+//			socket.connect(new InetSocketAddress(SERVER_IP, ChatServer.PORT));
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		new ChatWindow(socket, name).show();
+		// ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡtestㅡㅡㅡㅡㅡㅡㅡㅡsuccessㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+//		BufferedReader br;
+//		try {
+//			// 1. create socket
+//			socket = new Socket();
+//
+//			// 2. connect to server
+//			socket.connect(new InetSocketAddress(SERVER_IP, ChatServer.PORT));
+//
+//			// 3. get iostream
+//			PrintWriter pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), "utf-8"), true);
+//			 br = new BufferedReader(new InputStreamReader(socket.getInputStream(), "utf-8"));
+//			
+//			// 4. join protocol 진행 
+//			pw.println("join:" + name);
+//			String result = br.readLine();
+//			if (result.equals("join:ok")) {
+//				// 6. ChatClientReceiveThread 시작
+//				new ChatWindow(socket, name).show();
+//			}
+//
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+		//ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡisFinallyErrorㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 		try {
 			// 1. create socket
 			socket = new Socket();
@@ -42,30 +77,54 @@ public class ChatClientApp {
 			PrintWriter pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), "utf-8"), true);
 			BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream(), "utf-8"));
 
-			// 4. join protocol 진행
-			pw.println("join:" + name);
-//			pw.flush();
+			// 4. join protocol 진행 
+		pw.println("join:" + name);
 			String result = br.readLine();
 			if (result.equals("JOIN:OK")) {
 				// 6. ChatClientReceiveThread 시작
 				new ChatWindow(socket, name).show();
-			} else {
-				// 처리
-				return;
 			}
+
 		} catch (IOException e) {
 			e.printStackTrace();
-		} finally {
-			try {
-				if (socket != null && !socket.isClosed()) {
-					socket.close();
-				}
-				if (scanner != null) {
-					scanner.close();
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+	
 		}
+		
+		//ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+//		try {
+//			// 1. create socket
+//			socket = new Socket();
+//
+//			// 2. connect to server
+//			socket.connect(new InetSocketAddress(SERVER_IP, ChatServer.PORT));
+//
+//			// 3. get iostream
+//			PrintWriter pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), "utf-8"), true);
+//			BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream(), "utf-8"));
+//
+//			// 4. join protocol 진행 
+//		pw.println("join:" + name);
+//			String result = br.readLine();
+//			if (result.equals("JOIN:OK")) {
+//				// 6. ChatClientReceiveThread 시작
+//				new ChatWindow(socket, name).show();
+//			}
+//
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		} finally {
+//			try {
+//				if (socket != null && !socket.isClosed()) {
+//					socket.close();
+//				}
+//				if (scanner != null) {
+//					scanner.close();
+//				}
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//		}
 	}
 }
