@@ -32,7 +32,6 @@ public class ChatWindow {
 	private Socket socket;
 	private PrintWriter pw = null;
 	private BufferedReader br;
-	private String nickname;
 
 	public ChatWindow(Socket socket, String name) {
 		this.socket = socket;
@@ -41,7 +40,6 @@ public class ChatWindow {
 		buttonSend = new Button("Send");
 		textField = new TextField();
 		textArea = new TextArea(30, 80);
-		nickname = name;
 	}
 
 	public void show() {
@@ -98,8 +96,6 @@ public class ChatWindow {
 			pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), "utf-8"), true);
 			br = new BufferedReader(new InputStreamReader(socket.getInputStream(), "utf-8"));
 
-			//pw.println("join:" + nickname);
-			// ChatClientThread 생성하고 실행
 			new ChatClientThread().start();
 
 		} catch (UnsupportedEncodingException e1) {
@@ -161,7 +157,7 @@ public class ChatWindow {
 					updateTextArea(message);
 				}
 			} catch (SocketException e) {
-				System.out.println("SocketException.finish()");
+				System.out.println("exit chat");
 				finish();
 			} catch (IOException e) {
 				System.out.println("error: " + e);

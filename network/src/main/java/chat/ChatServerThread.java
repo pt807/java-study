@@ -35,6 +35,7 @@ public class ChatServerThread extends Thread {
 				String request = br.readLine();
 				if (request == null) {
 					ChatServer.log("클라이언트로 부터 연결이 끊김");
+					doQuit(pw);
 					break;
 				}
 
@@ -45,6 +46,7 @@ public class ChatServerThread extends Thread {
 					doMessage(token[1]);
 				} else if ("quit".equals(token[0])) {
 					doQuit(pw);
+					break;
 				} else {
 					ChatServer.log("에러: 알수 없는 요청(" + token[0] + ")");
 				}
@@ -83,7 +85,7 @@ public class ChatServerThread extends Thread {
 
 		PrintWriter printWriter = (PrintWriter) writer;
 		printWriter.println("JOIN:OK");
-		printWriter.flush();
+		// printWriter.flush();
 	}
 
 	private void addWriter(Writer writer) {

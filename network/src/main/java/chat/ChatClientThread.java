@@ -26,6 +26,6 @@ public class ChatClientThread extends Thread {
 			System.out.println("error: " + e);
 			System.exit(1);
 		}
-		
+
 	}
 }
